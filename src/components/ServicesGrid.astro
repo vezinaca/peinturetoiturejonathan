@@ -1,0 +1,21 @@
+---
+import { copy, withBase, type Language } from '../data/site';
+const { lang, full = false } = Astro.props as { lang: Language; full?: boolean };
+const t = copy[lang];
+const prefix = lang === 'fr' ? '/fr' : '/en';
+---
+
+<div class:list={['services-grid', { 'services-grid-full': full }]}>
+  {t.services.map((service, index) => (
+    <article class={`service-card service-card-${index + 1}`} id={service.id} style={`--service-image: url("${withBase(service.image)}")`}>
+      <div class="service-card-content">
+        <a class="service-arrow" href={`${withBase(`${prefix}/services/`)}#${service.id}`} aria-label={`${t.readMore}: ${service.title}`}>
+          <span aria-hidden="true">⌄</span>
+        </a>
+        <h3>{service.title}</h3>
+        <p>{service.short}</p>
+        <a class="service-link" href={`${withBase(`${prefix}/services/`)}#${service.id}`}>{t.readMore}</a>
+      </div>
+    </article>
+  ))}
+</div>

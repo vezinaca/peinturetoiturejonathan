@@ -1,0 +1,18 @@
+---
+import { company, copy, withBase, type Language } from '../data/site';
+const { lang } = Astro.props as { lang: Language };
+const t = copy[lang];
+const prefix = lang === 'fr' ? '/fr' : '/en';
+const linkNames = [
+  ['services', t.pages.services], ['projects', t.pages.projects], ['about', t.pages.about],
+  ['contact', t.pages.contact], ['privacy', t.pages.privacy],
+];
+---
+
+<footer class="site-footer">
+  <p>RBQ {company.rbq} · NEQ {company.neq}</p>
+  <p>{t.footer.replace('{year}', String(new Date().getFullYear()))}</p>
+  <nav aria-label={lang === 'fr' ? 'Navigation de pied de page' : 'Footer navigation'}>
+    {linkNames.map(([slug, label]) => <a href={withBase(`${prefix}/${slug}/`)}>{label}</a>)}
+  </nav>
+</footer>

@@ -1,0 +1,62 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import ServicesGrid from './ServicesGrid.astro';
+import ProjectsGallery from './ProjectsGallery.astro';
+import QuoteContact from './QuoteContact.astro';
+import { copy, withBase, type Language } from '../data/site';
+const { lang } = Astro.props as { lang: Language };
+const t = copy[lang];
+---
+
+<MainLayout lang={lang} title={lang === 'fr' ? 'Accueil' : 'Home'} description={t.heroLead}>
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-shade" style={`--hero-image: url("${withBase('/images/reference/video-thumb.webp')}")`}></div>
+      <div class="hero-content">
+        <h1 id="hero-title">{t.heroTitle}</h1>
+        <p>{t.heroLead}</p>
+        <a class="pill-button" href={`${lang === 'fr' ? '/' : '/en/'}#contact`}>{t.contact}</a>
+      </div>
+    </section>
+
+    <section class="trust-section" aria-labelledby="trust-title">
+      <div class="trust-copy">
+        <h2 id="trust-title">{t.trustTitle}</h2>
+        <p>{t.trustText}</p>
+      </div>
+      <div class="trust-photo">
+        <img src={withBase('/images/reference/service-walls-full.webp')} alt={lang === 'fr' ? 'Travail de peinture au pulvérisateur' : 'Spray painting work'} loading="lazy" />
+      </div>
+    </section>
+
+    <section class="team-intro" aria-labelledby="team-title">
+      <h2 id="team-title">{t.teamTitle}</h2>
+      <p>{t.teamText}</p>
+      <span class="roof-mark" aria-hidden="true"><i></i><b>⌁</b><i></i></span>
+    </section>
+
+    <section id="services" class="services-section" aria-labelledby="services-title">
+      <h2 id="services-title" class="visually-hidden">{t.serviceTitle}</h2>
+      <ServicesGrid lang={lang} />
+    </section>
+
+    <section id="projects" class="projects-section" aria-labelledby="projects-title">
+      <h2 id="projects-title">{t.projectsTitle}</h2>
+      <ProjectsGallery lang={lang} />
+    </section>
+
+    <section id="about" class="about-section" aria-labelledby="about-title">
+      <div class="about-photo"><img src={withBase('/images/reference/about-full.webp')} alt={lang === 'fr' ? 'Application d’un revêtement sur une toiture' : 'Applying a roof coating'} loading="lazy" /></div>
+      <div class="about-copy">
+        <h2 id="about-title">{t.aboutTitle}</h2>
+        <p>{t.aboutText}</p>
+        <a class="pill-button" href={withBase(`${lang === 'fr' ? '/fr' : '/en'}/about/`)}>{t.nav.about}</a>
+      </div>
+    </section>
+
+    <section id="contact" class="contact-section" aria-labelledby="contact-title">
+      <h2 id="contact-title">{t.contactTitle}</h2>
+      <QuoteContact lang={lang} />
+    </section>
+  </main>
+</MainLayout>

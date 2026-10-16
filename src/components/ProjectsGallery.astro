@@ -1,0 +1,23 @@
+---
+import { copy, projects, withBase, type Language } from '../data/site';
+const { lang, full = false } = Astro.props as { lang: Language; full?: boolean };
+const t = copy[lang];
+---
+
+<div class:list={['projects-grid', { 'projects-grid-full': full }]}>
+  {projects.map((project, index) => (
+    <figure class="project-item">
+      <div class="project-comparison" data-comparison>
+        <img class="comparison-base" src={withBase(project.before)} alt={`${t.before}: ${project.alt[lang]}`} loading="lazy" />
+        <div class="comparison-after" data-after-image>
+          <img src={withBase(project.after)} alt={`${t.after}: ${project.alt[lang]}`} loading="lazy" />
+        </div>
+        <span class="comparison-label comparison-label-before">{t.before}</span>
+        <span class="comparison-label comparison-label-after">{t.after}</span>
+        <span class="comparison-handle" aria-hidden="true"><span>‹</span><span>›</span></span>
+        <label class="visually-hidden" for={`comparison-${lang}-${index}`}>{lang === 'fr' ? 'Comparer avant et après' : 'Compare before and after'}</label>
+        <input id={`comparison-${lang}-${index}`} class="comparison-range" type="range" min="0" max="100" value="50" aria-valuetext={lang === 'fr' ? 'Répartition avant/après' : 'Before/after split'} />
+      </div>
+    </figure>
+  ))}
+</div>

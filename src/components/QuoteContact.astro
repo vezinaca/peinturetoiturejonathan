@@ -1,0 +1,58 @@
+---
+import { company, copy, phoneContacts, type Language } from '../data/site';
+const { lang } = Astro.props as { lang: Language };
+const t = copy[lang];
+const endpoint = import.meta.env.PUBLIC_FORMSPREE_ENDPOINT ?? '';
+const configured = endpoint.startsWith('https://formspree.io/f/') && !endpoint.includes('your-form-id');
+---
+
+<div class="contact-layout">
+  <div class="contact-details">
+    <section class="regional-phones" aria-labelledby="regional-heading">
+      <h3 id="regional-heading">{t.offices}</h3>
+      <ul>
+        {phoneContacts.map((contact) => <li><span>{contact.city}</span><a href={`tel:${contact.phone.replace(/[^+\d]/g, '')}`}>{contact.phone}</a></li>)}
+      </ul>
+    </section>
+    <section class="address-block" aria-labelledby="address-heading">
+      <h3 id="address-heading">{t.addressTitle}</h3>
+      <address>{company.address}<br />{company.city}<br />{company.postalCode}</address>
+      <p>NEQ {company.neq}<br />RBQ {company.rbq}</p>
+    </section>
+    <section class="email-block" aria-labelledby="email-heading">
+      <h3 id="email-heading">{t.sendEmail}</h3>
+      <a href={`mailto:${company.email}`}>{company.email}</a>
+    </section>
+  </div>
+
+  <div class="quote-form-wrap">
+    <h3>{t.sendEmail}</h3>
+    <p class="form-note">{lang === 'fr' ? 'Les champs marqués d’un astérisque sont obligatoires.' : 'Fields marked with an asterisk are required.'}</p>
+    <form
+      action={configured ? endpoint : '#'}
+      method="POST"
+      enctype="multipart/form-data"
+      data-quote-form
+      data-configured={String(configured)}
+      data-success={t.thankYou}
+      data-error={t.formError}
+      data-not-configured={`${t.formNotConfigured} ${company.email}.`}
+    >
+      <input type="hidden" name="_subject" value={lang === 'fr' ? 'Nouvelle demande de devis' : 'New quote request'} />
+      <label for={`name-${lang}`}>{t.name} <span aria-hidden="true">*</span></label>
+      <input id={`name-${lang}`} name="name" type="text" autocomplete="name" required />
+      <label for={`email-${lang}`}>{t.email} <span aria-hidden="true">*</span></label>
+      <input id={`email-${lang}`} name="email" type="email" autocomplete="email" required />
+      <label for={`phone-${lang}`}>{t.phone}</label>
+      <input id={`phone-${lang}`} name="phone" type="tel" autocomplete="tel" />
+      <label for={`project-address-${lang}`}>{t.projectAddress}</label>
+      <input id={`project-address-${lang}`} name="project_address" type="text" autocomplete="street-address" />
+      <label for={`message-${lang}`}>{t.message}</label>
+      <textarea id={`message-${lang}`} name="message" rows="4"></textarea>
+      <label for={`photo-${lang}`}>{t.photos}</label>
+      <input id={`photo-${lang}`} name="attachment" type="file" accept="image/*" />
+      <div class="form-submit-row"><button type="submit">{t.submit}</button></div>
+      <p class="form-status" role="status" aria-live="polite" data-form-status hidden></p>
+    </form>
+  </div>
+</div>
