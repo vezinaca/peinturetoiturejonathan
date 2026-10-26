@@ -295,3 +295,19 @@ body.service-dialog-open { overflow: hidden; }
   .nav-links { gap: .65rem; }
   .nav-links a { font-size: 1.125rem; }
 }
+
+@media (max-width: 800px) {
+  /* Keep the expanded menu opaque instead of blending it into the hero. */
+  .site-header:has(.nav-links.is-open) {
+    mix-blend-mode: normal;
+    background: white;
+  }
+  .nav-links {
+    left: 0;
+    right: 0;
+    max-height: calc(100dvh - 210px);
+    overflow-y: auto;
+    border-top: 1px solid #eee;
+    background: #fff;
+  }
+}

@@ -25,7 +25,7 @@ const t = copy[lang];
         <p>{t.trustText}</p>
       </div>
       <div class="trust-photo">
-        <img src={withBase('/images/reference/service-walls-full.webp')} alt={lang === 'fr' ? 'Travail de peinture au pulvérisateur' : 'Spray painting work'} loading="lazy" />
+        <img src={withBase('/images/reference/about-full.webp')} alt={lang === 'fr' ? 'Application d’un revêtement sur une toiture' : 'Applying a roof coating'} loading="lazy" />
       </div>
     </section>
 
@@ -46,7 +46,7 @@ const t = copy[lang];
     </section>
 
     <section id="about" class="about-section" aria-labelledby="about-title">
-      <div class="about-photo"><img src={withBase('/images/reference/about-full.webp')} alt={lang === 'fr' ? 'Application d’un revêtement sur une toiture' : 'Applying a roof coating'} loading="lazy" /></div>
+      <div class="about-photo"><img src={withBase('/images/reference/service-walls-full.webp')} alt={lang === 'fr' ? 'Travail de peinture au pulvérisateur' : 'Spray painting work'} loading="lazy" /></div>
       <div class="about-copy">
         <h2 id="about-title">{t.aboutTitle}</h2>
         {t.aboutText.split('\n\n').map((paragraph, index) => <p>{index === 0 ? <strong>{paragraph}</strong> : paragraph}</p>)}
