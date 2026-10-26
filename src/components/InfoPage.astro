@@ -18,7 +18,7 @@ const description = kind === 'privacy' ? t.privacyText : t.heroLead;
     {kind === 'projects' && <section class="info-section"><ProjectsGallery lang={lang} full /></section>}
     {kind === 'about' && <section class="about-section about-page-content">
       <div class="about-photo"><img src={withBase('/images/reference/about-full.webp')} alt={lang === 'fr' ? 'Application d’un revêtement sur une toiture' : 'Applying a roof coating'} /></div>
-      <div class="about-copy"><h2>{t.aboutTitle}</h2><p>{t.aboutText}</p><p>{company.name}</p></div>
+      <div class="about-copy"><h2>{t.aboutTitle}</h2>{t.aboutText.split('\n\n').map((paragraph, index) => <p>{index === 0 ? <strong>{paragraph}</strong> : paragraph}</p>)}<p>{company.name}</p></div>
     </section>}
     {kind === 'contact' && <section class="contact-section"><QuoteContact lang={lang} /></section>}
     {kind === 'privacy' && <section class="privacy-copy">

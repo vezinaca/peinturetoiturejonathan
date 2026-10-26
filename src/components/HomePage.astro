@@ -29,13 +29,13 @@ const t = copy[lang];
       </div>
     </section>
 
-    <section class="team-intro" aria-labelledby="team-title">
+    <section id="services" class="team-intro" aria-labelledby="team-title">
       <h2 id="team-title">{t.teamTitle}</h2>
       <p>{t.teamText}</p>
       <span class="roof-mark" aria-hidden="true"><i></i><b>⌁</b><i></i></span>
     </section>
 
-    <section id="services" class="services-section" aria-labelledby="services-title">
+    <section class="services-section" aria-labelledby="services-title">
       <h2 id="services-title" class="visually-hidden">{t.serviceTitle}</h2>
       <ServicesGrid lang={lang} />
     </section>
@@ -49,7 +49,7 @@ const t = copy[lang];
       <div class="about-photo"><img src={withBase('/images/reference/about-full.webp')} alt={lang === 'fr' ? 'Application d’un revêtement sur une toiture' : 'Applying a roof coating'} loading="lazy" /></div>
       <div class="about-copy">
         <h2 id="about-title">{t.aboutTitle}</h2>
-        <p>{t.aboutText}</p>
+        {t.aboutText.split('\n\n').map((paragraph, index) => <p>{index === 0 ? <strong>{paragraph}</strong> : paragraph}</p>)}
       </div>
     </section>
 

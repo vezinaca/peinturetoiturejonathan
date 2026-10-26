@@ -22,7 +22,6 @@ const otherRoot = withBase(otherPath);
     <img src={withBase('/images/logo-peinture-toiture-jonathan.png')} alt="Peinture Toiture Jonathan" />
   </a>
   <div class="nav-wrap">
-    <a class="language-link" href={otherRoot} lang={lang === 'fr' ? 'en' : 'fr'}>{t.otherLang}</a>
     <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation" data-menu-toggle>
       <span class="visually-hidden">{lang === 'fr' ? 'Ouvrir le menu' : 'Open menu'}</span>
       <span aria-hidden="true" class="hamburger"><i></i><i></i><i></i></span>
@@ -33,6 +32,7 @@ const otherRoot = withBase(otherPath);
         <li><a href={`${root}#projects`}>{t.nav.projects}</a></li>
         <li><a href={`${root}#about`}>{t.nav.about}</a></li>
         <li><a href={`${root}#contact`}>{t.nav.contact}</a></li>
+        <li><a class="language-link" href={otherRoot} lang={lang === 'fr' ? 'en' : 'fr'}>{t.otherLang}</a></li>
       </ul>
     </nav>
   </div>

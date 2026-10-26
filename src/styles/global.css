@@ -48,7 +48,7 @@ h1, h2, h3 { line-height: 1.25; font-weight: 700; }
 .brand { display: block; width: clamp(170px, 18vw, 250px); }
 .brand img { width: 100%; height: auto; mix-blend-mode: multiply; }
 .nav-wrap { display: flex; align-items: center; gap: 1.4rem; padding-top: 1.15rem; }
-.language-link, .nav-links a { color: var(--red); text-decoration: none; font-weight: 700; font-size: clamp(1rem, 1.4vw, 1.5rem); }
+.language-link, .nav-links a { color: var(--red); text-decoration: none; font-weight: 700; font-size: 1.5rem; }
 .nav-links { display: flex; list-style: none; align-items: center; gap: 1.35rem; margin: 0; padding: 0; }
 .nav-links a:hover, .language-link:hover { color: var(--red-dark); text-decoration: underline; text-underline-offset: .25rem; }
 .menu-toggle { display: none; border: 0; background: transparent; color: var(--red); padding: .5rem; cursor: pointer; }
@@ -233,30 +233,30 @@ body.service-dialog-open { overflow: hidden; }
 .service-dialog-image { position: relative; isolation: isolate; padding: 100px 25px 40px; background: var(--service-image) center / cover no-repeat; text-align: center; }
 .service-dialog-image::before { content: ''; position: absolute; z-index: -1; inset: 0; background: rgb(45 45 45 / 55%); }
 .service-dialog-1 .service-dialog-image::before, .service-dialog-3 .service-dialog-image::before { background: rgb(153 37 30 / 62%); }
-.service-dialog-image h2 { margin: 0; color: white; font-weight: 400; font-size: clamp(1.5rem, 2.6vw, 2.4rem); line-height: 1.04; overflow-wrap: break-word; }
+.service-dialog-image h2 { margin: 0; color: white; font-weight: 400; font-size: 3rem; line-height: 1.5; overflow-wrap: break-word; }
 .service-dialog-panel { position: relative; overflow-y: auto; overscroll-behavior: contain; scrollbar-gutter: stable; }
 .service-dialog-close { position: sticky; top: 7px; float: right; z-index: 2; display: grid; place-items: center; width: 36px; height: 36px; margin: 4px 1px 0 0; border: 0; border-radius: 50%; color: #666; background: white; font-size: 1.6rem; line-height: 1; cursor: pointer; }
 .service-dialog-close:hover { background: #eee; }
 .service-dialog-copy { display: flex; flex-direction: column; min-height: 100%; padding: 56px 46px 50px 50px; }
-.service-dialog-intro { margin-bottom: 26px; font-size: 1rem; line-height: 1.55; }
+.service-dialog-intro { margin-bottom: 26px; font-size: 1.25rem; line-height: 1.5; }
 .service-detail-section { position: relative; padding-left: 32px; margin-bottom: 20px; }
 .service-detail-check { position: absolute; top: 0; left: 0; display: grid; place-items: center; width: 17px; height: 21px; color: white; background: #ae3331; font-size: .8rem; clip-path: polygon(50% 0, 95% 20%, 90% 72%, 50% 100%, 10% 72%, 5% 20%); }
-.service-detail-section h3 { margin: 0 0 5px; font-size: 1rem; font-weight: 400; line-height: 1.4; }
-.service-detail-section p, .service-detail-section li { font-size: 1rem; line-height: 1.55; }
+.service-detail-section h3 { margin: 0 0 5px; font-size: 1.25rem; font-weight: 400; line-height: 1.4; }
+.service-detail-section p, .service-detail-section li { font-size: 1rem; line-height: 1.5; }
 .service-detail-section p { margin-bottom: 6px; }
 .service-detail-section ul { margin: 0; padding-left: 17px; }
 .service-detail-section li { padding-left: 0; margin-bottom: 4px; }
 .service-dialog-contact { margin-top: auto; padding-top: 26px; text-align: center; }
-.service-dialog-contact p { margin-bottom: 6px; color: #ae3331; font-weight: 700; }
-.service-dialog-contact .pill-button { min-height: 36px; padding: 5px 26px; background: #ae3331; font-weight: 600; }
+.service-dialog-contact p { font-size: 1.25rem; margin-bottom: 6px; color: #ae3331; font-weight: 700; }
+.service-dialog-contact .pill-button { min-height: 36px; padding: 5px 26px; background: #ae3331; font-weight: 700; }
 .service-dialog-contact .pill-button:hover { background: var(--red-dark); }
 @media (max-width: 700px) {
   .service-dialog { width: calc(100% - 24px); height: calc(100dvh - 32px); }
   .service-dialog-layout { grid-template-columns: 1fr; grid-template-rows: auto 1fr; }
   .service-dialog-image { padding: 36px 36px 28px; }
-  .service-dialog-image h2 { font-size: 1.55rem; line-height: 1.15; }
+  .service-dialog-image h2 { font-size: 2.25rem; line-height: 1.5; }
   .service-dialog-copy { padding: 46px 24px 28px; }
-  .service-dialog-intro { font-size: .95rem; }
+  .service-dialog-intro { font-size: 1.125rem; line-height: 1.375; }
   .service-detail-section { padding-left: 26px; }
 }
 
@@ -268,4 +268,30 @@ body.service-dialog-open { overflow: hidden; }
 @media (max-width: 800px) {
   .team-intro p { font-size: 1.25rem; }
   .trust-copy p, .about-copy p { font-size: 1.125rem; }
+}
+
+/* Match the original popup typography at its responsive breakpoints. */
+@media (max-width: 1023px) {
+  .service-dialog-intro, .service-detail-section h3 { font-size: 1.125rem; }
+  .service-dialog-intro { line-height: 1.375; }
+}
+@media (min-width: 701px) and (max-width: 767px) {
+  .service-dialog-image h2 { font-size: 2.25rem; }
+}
+@media (max-width: 479px) {
+  .service-dialog-contact p, .service-dialog-contact .pill-button { font-size: 1.125rem; }
+}
+@media (max-width: 359px) {
+  .service-dialog-image h2 { font-size: 1.875rem; }
+  .service-dialog-contact p, .service-dialog-contact .pill-button { font-size: 1rem; }
+}
+
+/* Original navigation: 24px on wide screens, 20px on smaller screens. */
+@media (max-width: 1279px) {
+  .language-link, .nav-links a { font-size: 1.25rem; }
+}
+@media (min-width: 801px) and (max-width: 1023px) {
+  .brand { width: 150px; }
+  .nav-links { gap: .65rem; }
+  .nav-links a { font-size: 1.125rem; }
 }
