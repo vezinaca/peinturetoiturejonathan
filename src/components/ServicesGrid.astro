@@ -1,21 +1,71 @@
 ---
-import { copy, withBase, type Language } from '../data/site';
+import { copy, withBase, langRoot, type Language } from '../data/site';
+import { serviceDetails } from '../data/serviceDetails';
 const { lang, full = false } = Astro.props as { lang: Language; full?: boolean };
 const t = copy[lang];
-const prefix = lang === 'fr' ? '/fr' : '/en';
+const details = serviceDetails[lang];
 ---
 
 <div class:list={['services-grid', { 'services-grid-full': full }]}>
   {t.services.map((service, index) => (
     <article class={`service-card service-card-${index + 1}`} id={service.id} style={`--service-image: url("${withBase(service.image)}")`}>
       <div class="service-card-content">
-        <a class="service-arrow" href={`${withBase(`${prefix}/services/`)}#${service.id}`} aria-label={`${t.readMore}: ${service.title}`}>
+        <button type="button" class="service-arrow" data-service-open={`service-dialog-${service.id}`} aria-haspopup="dialog" aria-controls={`service-dialog-${service.id}`} aria-label={`${t.readMore}: ${service.title}`}>
           <span aria-hidden="true">⌄</span>
-        </a>
+        </button>
         <h3>{service.title}</h3>
         <p>{service.short}</p>
-        <a class="service-link" href={`${withBase(`${prefix}/services/`)}#${service.id}`}>{t.readMore}</a>
+        <button type="button" class="service-link" data-service-open={`service-dialog-${service.id}`} aria-haspopup="dialog" aria-controls={`service-dialog-${service.id}`}>{t.readMore}</button>
       </div>
     </article>
   ))}
 </div>
+
+{t.services.map((service, index) => (
+  <dialog id={`service-dialog-${service.id}`} class={`service-dialog service-dialog-${index + 1}`} aria-labelledby={`service-title-${service.id}`}>
+    <div class="service-dialog-layout">
+      <div class="service-dialog-image" style={`--service-image: url("${withBase(service.image)}")`}>
+        <h2 id={`service-title-${service.id}`}>{service.title}</h2>
+      </div>
+      <div class="service-dialog-panel">
+        <button type="button" class="service-dialog-close" data-service-close aria-label={lang === 'fr' ? 'Fermer' : 'Close'} autofocus>×</button>
+        <div class="service-dialog-copy">
+          <p class="service-dialog-intro">{details[index].intro}</p>
+          {details[index].sections.map((section) => (
+            <section class="service-detail-section">
+              <span class="service-detail-check" aria-hidden="true">✓</span>
+              <h3>{section.title}</h3>
+              <p>{section.text}</p>
+              <ul>{section.bullets.map((bullet) => <li>{bullet}</li>)}</ul>
+            </section>
+          ))}
+          <div class="service-dialog-contact">
+            <p>{lang === 'fr' ? "Besoin d’une soumission?" : 'Need a quote?'}</p>
+            <a class="pill-button" href={`${langRoot(lang)}#contact`} data-service-contact>{t.contact}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </dialog>
+))}
+
+<script>
+  document.querySelectorAll<HTMLButtonElement>('[data-service-open]').forEach((button) => {
+    button.addEventListener('click', () => {
+      const dialog = document.getElementById(button.dataset.serviceOpen ?? '');
+      if (!(dialog instanceof HTMLDialogElement)) return;
+      dialog.showModal();
+      dialog.querySelector('.service-dialog-panel')?.scrollTo(0, 0);
+      document.body.classList.add('service-dialog-open');
+    });
+  });
+  document.querySelectorAll<HTMLDialogElement>('.service-dialog').forEach((dialog) => {
+    dialog.querySelector('[data-service-close]')?.addEventListener('click', () => dialog.close());
+    dialog.querySelector('[data-service-contact]')?.addEventListener('click', () => dialog.close());
+    dialog.addEventListener('click', (event) => {
+      const bounds = dialog.getBoundingClientRect();
+      if (event.target === dialog && (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom)) dialog.close();
+    });
+    dialog.addEventListener('close', () => document.body.classList.remove('service-dialog-open'));
+  });
+</script>

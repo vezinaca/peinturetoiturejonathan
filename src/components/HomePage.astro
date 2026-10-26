@@ -3,7 +3,7 @@ import MainLayout from '../layouts/MainLayout.astro';
 import ServicesGrid from './ServicesGrid.astro';
 import ProjectsGallery from './ProjectsGallery.astro';
 import QuoteContact from './QuoteContact.astro';
-import { copy, withBase, type Language } from '../data/site';
+import { copy, withBase, langRoot, type Language } from '../data/site';
 const { lang } = Astro.props as { lang: Language };
 const t = copy[lang];
 ---
@@ -15,7 +15,7 @@ const t = copy[lang];
       <div class="hero-content">
         <h1 id="hero-title">{t.heroTitle}</h1>
         <p>{t.heroLead}</p>
-        <a class="pill-button" href={`${lang === 'fr' ? '/' : '/en/'}#contact`}>{t.contact}</a>
+        <a class="pill-button" href={`${langRoot(lang)}#contact`}>{t.contact}</a>
       </div>
     </section>
 
@@ -50,11 +50,10 @@ const t = copy[lang];
       <div class="about-copy">
         <h2 id="about-title">{t.aboutTitle}</h2>
         <p>{t.aboutText}</p>
-        <a class="pill-button" href={withBase(`${lang === 'fr' ? '/fr' : '/en'}/about/`)}>{t.nav.about}</a>
       </div>
     </section>
 
-    <section id="contact" class="contact-section" aria-labelledby="contact-title">
+    <section class="contact-section" aria-labelledby="contact-title">
       <h2 id="contact-title">{t.contactTitle}</h2>
       <QuoteContact lang={lang} />
     </section>
