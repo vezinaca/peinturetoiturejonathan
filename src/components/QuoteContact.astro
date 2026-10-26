@@ -19,14 +19,9 @@ const configured = endpoint.startsWith('https://formspree.io/f/') && !endpoint.i
       <address>{company.address}<br />{company.city}<br />{company.postalCode}</address>
       <p>NEQ {company.neq}<br />RBQ {company.rbq}</p>
     </section>
-    <section class="email-block" aria-labelledby="email-heading">
-      <h3 id="email-heading">{t.sendEmail}</h3>
-      <a href={`mailto:${company.email}`}>{company.email}</a>
-    </section>
   </div>
 
   <div id="contact" class="quote-form-wrap">
-    <h3>{t.sendEmail}</h3>
     <p class="form-note">{lang === 'fr' ? 'Les champs marqués d’un astérisque sont obligatoires.' : 'Fields marked with an asterisk are required.'}</p>
     <form
       action={configured ? endpoint : '#'}
@@ -49,8 +44,6 @@ const configured = endpoint.startsWith('https://formspree.io/f/') && !endpoint.i
       <input id={`project-address-${lang}`} name="project_address" type="text" autocomplete="street-address" />
       <label for={`message-${lang}`}>{t.message}</label>
       <textarea id={`message-${lang}`} name="message" rows="4"></textarea>
-      <label for={`photo-${lang}`}>{t.photos}</label>
-      <input id={`photo-${lang}`} name="attachment" type="file" accept="image/*" />
       <div class="form-submit-row"><button type="submit">{t.submit}</button></div>
       <p class="form-status" role="status" aria-live="polite" data-form-status hidden></p>
     </form>
