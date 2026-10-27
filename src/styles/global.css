@@ -176,7 +176,7 @@ h1, h2, h3 { line-height: 1.25; font-weight: 700; }
   .nav-links.is-open { display: flex; }
   .nav-links a { display: block; padding: .75rem 1rem; }
   .hero { height: auto; min-height: 785px; }
-  .hero-shade { background: rgba(255,255,255,.76); }
+  .hero-shade { background: linear-gradient(rgba(255,255,255,.78), rgba(255,255,255,.78)), var(--hero-image) center / cover no-repeat; }
   .hero-content { padding: 110px 1.2rem 3rem; }
   .hero h1 { max-width: 630px; margin-bottom: 1rem; font-size: clamp(2.3rem, 7vw, 3.4rem); line-height: 1.12; }
   .hero p { font-size: clamp(1.125rem, 3.15vw, 1.5rem); line-height: 1.72; }
@@ -311,3 +311,7 @@ body.service-dialog-open { overflow: hidden; }
     background: #fff;
   }
 }
+
+/* Inner pages reserve room for the header rather than placing titles under it. */
+body:has(.info-page) .site-header { position: relative; top: auto; }
+body:has(.info-page) .page-banner { padding-top: 2rem; }

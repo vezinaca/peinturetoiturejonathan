@@ -34,15 +34,15 @@ export const serviceDetails: Record<Language, Detail[]> = {
           bullets: ['Polyvalence : antirouille et émail plastique en une seule étape.', 'Résistance : enduit enrichi de polyuréthane et de silicone.', 'Fini plastique ultra-brillant, semi-brillant et mat.', 'Pouvoir cachant supérieur.', 'Adhérence élevée.', 'Offert dans un choix de plus de 1 800 couleurs.'],
         },
         {
-          title: 'REVÊTEMENT ÉLASTOMÈRE NOXOR™',
+          title: 'REVÊTEMENT ÉLASTOMÈRE UNIFLEX',
           text: 'Utilisé lui aussi par la grande majorité des professionnels, ce revêtement élastomère se démarque par les caractéristiques suivantes :',
           bullets: [...coatingFeatures.fr, 'Offert en plusieurs couleurs : aluminium, blanc, rouge ou bleu.'],
         },
       ],
     },
     {
-      intro: 'Pour la réfection des toits de bardeaux, nous pouvons compter sur le revêtement élastomère pour bardeaux Noxor™ afin de fixer les granules et prolonger ainsi la vie des bardeaux de votre toiture. Ce produit professionnel reconnu assurera un travail d’une qualité inégalée!',
-      sections: [{ title: 'REVÊTEMENT ÉLASTOMÈRE NOXOR™', text: 'Ce revêtement élastomère se démarque par les caractéristiques suivantes :', bullets: [...coatingFeatures.fr, 'Offert en plusieurs couleurs : noir, brun, vert ou gris.'] }],
+      intro: 'Pour la réfection des toits de bardeaux, nous pouvons compter sur le revêtement élastomère pour bardeaux Uniflex afin de fixer les granules et prolonger ainsi la vie des bardeaux de votre toiture. Ce produit professionnel reconnu assurera un travail d’une qualité inégalée!',
+      sections: [{ title: 'REVÊTEMENT ÉLASTOMÈRE UNIFLEX', text: 'Ce revêtement élastomère se démarque par les caractéristiques suivantes :', bullets: [...coatingFeatures.fr, 'Offert en plusieurs couleurs : noir, brun, vert ou gris.'] }],
     },
     {
       intro: 'Le scellant de réparation de toiture permanente Uniflex® One Flash™ est un scellant de qualité supérieure à solin stable, résistant aux UV et flexible en permanence. Il s’agit d’un joint durable et résistant aux intempéries qui offre une excellente adhérence. Uniflex® One Flash™ élimine le besoin de renforcement du tissu, ce qui réduit le nombre d’étapes et le temps de travail.',
@@ -62,12 +62,12 @@ export const serviceDetails: Record<Language, Detail[]> = {
           text: 'Used by professionals, this anti-rust paint offers the following benefits:',
           bullets: ['Versatility: anti-rust protection and enamel finish in one step.', 'Durability: a coating enriched with polyurethane and silicone.', 'Available in high-gloss, semi-gloss and matte finishes.', 'Superior coverage.', 'Strong adhesion.', 'Available in more than 1,800 colours.'],
         },
-        { title: 'NOXOR™ ELASTOMERIC COATING', text: 'Also widely used by professionals, this elastomeric coating offers the following features:', bullets: [...coatingFeatures.en, 'Available in aluminium, white, red or blue.'] },
+        { title: 'UNIFLEX ELASTOMERIC COATING', text: 'Also widely used by professionals, this elastomeric coating offers the following features:', bullets: [...coatingFeatures.en, 'Available in aluminium, white, red or blue.'] },
       ],
     },
     {
-      intro: 'For shingle roof restoration, Noxor™ elastomeric shingle coating helps secure the granules and extend the life of your roof’s shingles. This professional product delivers a high-quality finish.',
-      sections: [{ title: 'NOXOR™ ELASTOMERIC COATING', text: 'This elastomeric coating offers the following features:', bullets: [...coatingFeatures.en, 'Available in black, brown, green or grey.'] }],
+      intro: 'For shingle roof restoration, Uniflex elastomeric shingle coating helps secure the granules and extend the life of your roof’s shingles. This professional product delivers a high-quality finish.',
+      sections: [{ title: 'UNIFLEX ELASTOMERIC COATING', text: 'This elastomeric coating offers the following features:', bullets: [...coatingFeatures.en, 'Available in black, brown, green or grey.'] }],
     },
     {
       intro: 'Uniflex® One Flash™ permanent roof repair sealant is a premium, non-sag flashing sealant that resists UV rays and remains flexible. It forms a durable, weather-resistant seal with excellent adhesion. Uniflex® One Flash™ eliminates the need for fabric reinforcement, reducing application steps and working time.',

@@ -57,7 +57,7 @@ export const copy = {
     formNotConfigured: "Le formulaire n'est pas encore configuré. Écrivez-nous à",
     addressTitle: 'NOS COORDONNÉES',
     privacyTitle: 'CONFIDENTIALITÉ',
-    privacyText: "Lorsque le formulaire est configuré avec Formspree, les renseignements que vous inscrivez, y compris une photo jointe, sont transmis à ce service pour acheminer votre demande à Peinture Toiture Jonathan. Pour toute question au sujet de votre demande, écrivez-nous à",
+    privacyText: "Lorsque le formulaire est configuré avec Formspree, les renseignements que vous inscrivez sont transmis à ce service pour acheminer votre demande à Peinture Toiture Jonathan. Pour toute question au sujet de votre demande, écrivez-nous à",
     footer: 'Copyright © {year} Peinture Toiture Jonathan',
     services: [
       { id: 'murs-exterieurs', title: 'PEINTURE DES MURS EXTÉRIEURS', short: 'Peinture de revêtements extérieurs en bois, métal, brique ou vinyle.', image: '/images/reference/service-walls-full.webp' },
@@ -101,7 +101,7 @@ export const copy = {
     formNotConfigured: 'The form has not been configured yet. Email us at',
     addressTitle: 'OUR ADDRESS',
     privacyTitle: 'PRIVACY',
-    privacyText: 'Once the form is configured with Formspree, information you enter, including an attached photo, is sent to that service so it can forward your request to Peinture Toiture Jonathan. For questions about your request, email us at',
+    privacyText: 'Once the form is configured with Formspree, information you enter is sent to that service so it can forward your request to Peinture Toiture Jonathan. For questions about your request, email us at',
     footer: 'Copyright © {year} Peinture Toiture Jonathan',
     services: [
       { id: 'exterior-walls', title: 'EXTERIOR WALL PAINTING', short: 'Painting for exterior wood, metal, brick, or vinyl siding.', image: '/images/reference/service-walls-full.webp' },
