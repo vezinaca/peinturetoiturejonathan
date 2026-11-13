@@ -67,8 +67,8 @@ h1, h2, h3 { line-height: 1.25; font-weight: 700; }
 .trust-copy { display: flex; flex-direction: column; justify-content: center; padding: clamp(2rem, 5vw, 5.5rem) clamp(2rem, 4vw, 4rem); }
 .trust-copy h2 { margin-bottom: .75rem; font-size: clamp(2rem, 3.4vw, 3rem); }
 .trust-copy p { margin-bottom: 0; max-width: 620px; font-size: 1.25rem; }
-.trust-photo { position: relative; min-height: 340px; overflow: hidden; }
-.trust-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.trust-video { position: relative; min-height: 340px; aspect-ratio: 16 / 9; background: #000; }
+.trust-video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
 .team-intro { padding: 2.1rem 1rem 1.6rem; text-align: center; background: var(--paper); }
 .team-intro h2 { margin-bottom: .65rem; font-size: clamp(2rem, 3.4vw, 3rem); }
 .team-intro p { font-size: 1.5rem; max-width: 850px; margin: 0 auto 1rem; }
@@ -90,7 +90,8 @@ h1, h2, h3 { line-height: 1.25; font-weight: 700; }
 .service-link { color: white; font-size: 1rem; font-weight: 700; text-decoration: none; }
 .service-link:hover { text-decoration: underline; text-underline-offset: .2rem; }
 
-.projects-section { padding: 2.2rem max(3vw, 1rem) 2.7rem; background: var(--paper); }
+.projects-section { padding: 2.2rem 40px 2.7rem; background: var(--paper); }
+.projects-section > .projects-grid { max-width: none; }
 .projects-section > h2 { margin-bottom: 1.35rem; text-align: center; color: var(--red); font-size: clamp(2rem, 3.4vw, 3rem); }
 .projects-grid { max-width: var(--page-width); margin: 0 auto; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(1rem, 3vw, 2.5rem); }
 .project-item { margin: 0; }
@@ -182,14 +183,14 @@ h1, h2, h3 { line-height: 1.25; font-weight: 700; }
   .hero p { font-size: clamp(1.125rem, 3.15vw, 1.5rem); line-height: 1.72; }
   .trust-section { grid-template-columns: 1fr; }
   .trust-copy { order: 2; padding: 2.1rem 1.2rem 2.5rem; }
-  .trust-photo { order: 1; min-height: 230px; max-height: 330px; }
+  .trust-video { order: 1; min-height: 0; }
   .team-intro { padding: 2rem 1.2rem 1.4rem; }
   .services-grid { grid-template-columns: 1fr; }
   .service-card { min-height: 280px; }
   .service-card-content { max-width: 540px; padding: 1.6rem 1.3rem; }
   .service-card h3 { font-size: 1.5rem; }
   .service-card p { font-size: 1.125rem; }
-  .projects-section { padding: 1.8rem 1rem 2rem; }
+  .projects-section { padding: 1.8rem 40px 2rem; }
   .projects-grid { grid-template-columns: 1fr; gap: 1rem; max-width: 580px; }
   .project-comparison { aspect-ratio: 1.55 / 1; }
   .about-section { grid-template-columns: 1fr; }
