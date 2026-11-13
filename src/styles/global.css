@@ -131,7 +131,7 @@ h1, h2, h3 { line-height: 1.25; font-weight: 700; }
 .quote-form-wrap form { display: grid; grid-template-columns: 1fr; }
 .quote-form-wrap label { margin: .25rem 0 .22rem; font-size: 1rem; }
 .quote-form-wrap label span { color: var(--red); }
-.quote-form-wrap input:not([type=file]), .quote-form-wrap textarea { width: 100%; min-height: 37px; padding: .48rem .58rem; border: 1px solid #ddd; border-radius: 3px; background: white; color: var(--ink); }
+.quote-form-wrap input:not([type=file]), .quote-form-wrap textarea { width: 100%; min-height: 37px; padding: .48rem .58rem; border: 1px solid #ddd; border-radius: 12px; background: white; color: var(--ink); }
 .quote-form-wrap textarea { min-height: 100px; resize: vertical; }
 .quote-form-wrap input[type=file] { width: 100%; padding: .3rem 0; font-size: .8rem; }
 .form-submit-row { display: flex; justify-content: flex-end; margin-top: .65rem; }
